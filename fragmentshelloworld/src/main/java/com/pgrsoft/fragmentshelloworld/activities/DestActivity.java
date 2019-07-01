@@ -6,6 +6,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.pgrsoft.fragmentshelloworld.R;
@@ -31,9 +32,14 @@ public class DestActivity extends AppCompatActivity implements ComunicaMenu {
         fragments[1] = new BFragment();
         fragments[2] = new CFragment();
 
-        Bundle extras = getIntent().getExtras();
-
         // Aqui llega la informacion de boton_pulsado : 0, 1, 2.
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null){
+
+        }
+
+
+
 
     }
 
@@ -47,6 +53,7 @@ public class DestActivity extends AppCompatActivity implements ComunicaMenu {
         // nos pide
         // 1. identificador del contenedor...
         // 2. el fragmento que queremos cargar... hay tres posibilidades
+
         fragmentTransaction.replace(R.id.destino, fragments[botonPulsado]);
         fragmentTransaction.commit();
 
