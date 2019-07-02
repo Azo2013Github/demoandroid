@@ -35,7 +35,7 @@ public class DestActivity extends AppCompatActivity implements ComunicaMenu {
         // Aqui llega la informacion de boton_pulsado : 0, 1, 2.
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
-
+            menu(bundle.getInt("BOTON_PULSADO"));
         }
 
 
