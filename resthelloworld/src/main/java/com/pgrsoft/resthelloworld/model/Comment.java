@@ -1,11 +1,15 @@
 package com.pgrsoft.resthelloworld.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Comment {
 
     private Integer id;
     private int userId;
     private String name;
     private String email;
+
+    @SerializedName("body")
     private String text;
 
     public Comment(Integer id, int userId, String name, String email, String text) {
