@@ -10,12 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pgrsoft.fragmentshelloworld.R;
-import com.pgrsoft.fragmentshelloworld.interfaceFragment.ComunicaMenu;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AFragment extends Fragment implements ComunicaMenu {
+public class AFragment extends Fragment {
 
 
 
@@ -31,9 +31,4 @@ public class AFragment extends Fragment implements ComunicaMenu {
         return inflater.inflate(R.layout.fragment_a, container, false);
     }
 
-    @Override
-    public void menu(int botonPulsado) {
-
-
-    }
 }

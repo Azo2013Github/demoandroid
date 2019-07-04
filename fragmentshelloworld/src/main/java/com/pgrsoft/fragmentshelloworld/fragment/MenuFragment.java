@@ -65,7 +65,6 @@ public class MenuFragment extends Fragment {
                     // Hemos de invocar al método .menu(boton) de la actividad actual.
                     // Pero para ello, la actividad la hemos de tratar como ComunicaMenu
                     // Por eso hacemos el casting...
-
                     ComunicaMenu cm = (ComunicaMenu) actividadActual;
                     cm.menu(BOTON_i);
 
