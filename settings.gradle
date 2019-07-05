@@ -1,1 +1,1 @@
-include ':app', ':fragmentshelloworld', ':resthelloworld'
+include ':app', ':fragmentshelloworld', ':resthelloworld', ':restpractica', ':practicarest'
