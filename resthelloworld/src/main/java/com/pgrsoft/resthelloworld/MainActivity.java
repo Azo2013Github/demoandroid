@@ -59,11 +59,11 @@ public class MainActivity extends AppCompatActivity {
                 for (Comment comment: comments) {
 
                     String content = "";
-                    content += "ID: " + comment.getId() + "\n\n ";
-                    content += "POST_ID: " + comment.getPostId() + "\n\n ";
-                    content += "NAME: " + comment.getName() + "\n\n ";
-                    content += "Email: " + comment.getEmail() + "\n\n ";
-                    content += "TEXT: " + comment.getText() ;
+                    content += "ID: " + comment.getId() + "\n ";
+                    content += "POST_ID: " + comment.getPostId() + "\n ";
+                    content += "NAME: " + comment.getName() + "\n ";
+                    content += "Email: " + comment.getEmail() + "\n ";
+                    content += "TEXT: " + comment.getText() + "\n";
 
                     textViewResult.append(content);
                 }

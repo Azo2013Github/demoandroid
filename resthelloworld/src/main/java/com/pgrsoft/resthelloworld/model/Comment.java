@@ -16,6 +16,13 @@ public class Comment {
 
     }
 
+    public Comment(int postId, String name, String email, String text) {
+        this.postId = postId;
+        this.name = name;
+        this.email = email;
+        this.text = text;
+    }
+
     public int getPostId() {
 
         return postId;
