@@ -3,6 +3,7 @@ package com.pgrsoft.practicarest.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -36,11 +37,31 @@ public class ProductoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_producto);
 
+
+
+
+        // Creates the json object which will manage the information received
+        GsonBuilder builder = new GsonBuilder();
+
+        // Register an adapter to manage the date types as long values
+        builder.registerTypeAdapter(Date.class, new JsonDeserializer<Date>() {
+
+            @Override
+            public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+                Log.d("** getAsJsonPrimitive:", json.getAsJsonPrimitive().toString());
+                long millisecons = json.getAsJsonPrimitive().getAsLong();
+                return new Date(millisecons);
+            }
+        });
+
+        Gson gson = builder.create();
+
+
         textViewResult = (TextView) findViewById(R.id.idResultadoProducto);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://pedi-gest.herokuapp.com/api/")
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
@@ -71,15 +92,15 @@ public class ProductoActivity extends AppCompatActivity {
                 for (Producto producto: productos) {
 
                     String content = "";
-                    content = "ID: " + producto.getCodigo() + "\n";
-                    content = "PRECIO: " + producto.getPrecio() + "\n";
-                    content = "DESCRIPCION: " + producto.getDescripcion() + "\n";
-                    //content = "FECHA_ALTA: " + producto.getFechaAlta() + "\n";
-                    content = "FECHA: " +gsonBuilder.registerTypeAdapter(Date.class, new DateTypeDeserializer()) + "\n";
-                    content = "DESCATALOGADO: " + producto.isDescatalogado() + "\n";
-                    content = "CATEGORIA: " + producto.getCategoria() + "\n";
-
+                    content += "ID: " + producto.getCodigo() + "\n";
+                    content += "PRECIO: " + producto.getPrecio() + "\n";
+                    content += "DESCRIPCION: " + producto.getDescripcion() + "\n";
+                    content += "FECHA_ALTA: " + producto.getFechaAlta() + "\n";
+                    content += "DESCATALOGADO: " + producto.isDescatalogado() + "\n";
+                    content += "CATEGORIA: " + producto.getCategoria() + "\n";
+                    textViewResult.append(content);
                  }
+
 
             }
 
@@ -90,6 +111,7 @@ public class ProductoActivity extends AppCompatActivity {
 
             }
         });
+
 
 
 
