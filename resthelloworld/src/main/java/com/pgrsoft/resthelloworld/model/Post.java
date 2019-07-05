@@ -1,49 +1,40 @@
 package com.pgrsoft.resthelloworld.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Post {
 
-    private int id;
     private int userId;
-    private String name;
+    private Integer id;
+    private String title;
+
+    @SerializedName("body")
     private String text;
 
-    public Post(int id, int userId, String name, String text) {
-        this.id = id;
+    public Post(){
+
+    }
+
+    public Post(int userId, String title, String text){
         this.userId = userId;
-        this.name = name;
+        this.title = title;
         this.text = text;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public Integer getId() {
+        return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public String getTitle() {
+        return title;
     }
 
     public String getText() {
         return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
     }
 
     @Override
@@ -51,7 +42,7 @@ public class Post {
         return "Post{" +
                 "id=" + id +
                 ", userId=" + userId +
-                ", name='" + name + '\'' +
+                ", title='" + title + '\'' +
                 ", text='" + text + '\'' +
                 '}';
     }

@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
 
-                if (response.isSuccessful()){
+                if (!response.isSuccessful()){
                     textViewResult.setText("Code: "+response.code());
                     return;
                 }
@@ -59,11 +59,11 @@ public class MainActivity extends AppCompatActivity {
                 for (Comment comment: comments) {
 
                     String content = "";
-                    content += "ID: " + comment.getId();
-                    content += "POST_ID: " + comment.getUserId();
-                    content += "NAME: " + comment.getName();
-                    content += "Email: " + comment.getEmail();
-                    content += "TEXT: " + comment.getText();
+                    content += "ID: " + comment.getId() + "\n\n ";
+                    content += "POST_ID: " + comment.getPostId() + "\n\n ";
+                    content += "NAME: " + comment.getName() + "\n\n ";
+                    content += "Email: " + comment.getEmail() + "\n\n ";
+                    content += "TEXT: " + comment.getText() ;
 
                     textViewResult.append(content);
                 }
