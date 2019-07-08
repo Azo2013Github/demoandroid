@@ -79,8 +79,8 @@ public class ProductoActivity extends AppCompatActivity {
                 List<Producto> productos = response.body();
 
                 /*Conversion date json to date java: */
-                GsonBuilder gsonBuilder = new GsonBuilder();
-                gsonBuilder.registerTypeAdapter(Date.class, new DateTypeDeserializer());
+                //GsonBuilder gsonBuilder = new GsonBuilder();
+                //gsonBuilder.registerTypeAdapter(Date.class, new DateTypeDeserializer());
 
                 if (!response.isSuccessful()){
                     textViewResult.setText("CODE: "+response.code());
@@ -90,6 +90,7 @@ public class ProductoActivity extends AppCompatActivity {
                 for (Producto producto: productos) {
 
                     String content = "";
+                    //content += producto.toString();
                     content += "ID: " + producto.getCodigo() + "\n";
                     content += "NOMBRE: " +producto.getNombre() + "\n";
                     content += "PRECIO: " + producto.getPrecio() + "\n";
@@ -110,43 +111,6 @@ public class ProductoActivity extends AppCompatActivity {
         });
 
     }
-
-    private void createProducto() {
-
-        Producto producto = new Producto("Yassa", 50, "Arroz", new Date(), true, "Comida segunda plato");
-        Call<Producto> call = jsonPlaceHolderApi.createProducto(producto);
-
-        call.enqueue(new Callback<Producto>() {
-
-            @Override
-            public void onResponse(Call<Producto> call, Response<Producto> response) {
-                if (!response.isSuccessful()){
-                    textViewResult.setText("Code: "+response.code());
-                    return;
-                }
-
-                Producto responProducto = response.body();
-
-                String content = "";
-                content += "Nombre: " + responProducto.getNombre() + "\n";
-                content += "Precio: " + responProducto.getPrecio() + "\n";
-                content += "Descripcion: " +responProducto.getDescripcion() + "\n";
-                content += "Fecha: " + responProducto.getFechaAlta() + "\n";
-                content += "Descatalogado: " +responProducto.isDescatalogado() + "\n";
-                content += "Categoria: " + responProducto.getCategoria() + "\n";
-
-                textViewResult.setText(content);
-            }
-
-            @Override
-            public void onFailure(Call<Producto> call, Throwable t) {
-                textViewResult.setText(t.getMessage());
-            }
-        });
-
-
-    }
-
 
 
 }

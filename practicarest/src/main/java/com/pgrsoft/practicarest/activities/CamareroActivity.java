@@ -60,6 +60,7 @@ public class CamareroActivity extends AppCompatActivity {
                 for (Camarero camarero: camareros) {
 
                     String content = "";
+
                     content += "CODIGO: " + camarero.getCodigo()+ "\n ";
                     content += "NOMBRE: " + camarero.getNombre() + "\n ";
 

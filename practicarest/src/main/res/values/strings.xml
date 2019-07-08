@@ -6,4 +6,7 @@
     <string name="alta_camarero">ALTA CAMARERO</string>
     <string name="alta_producto">ALTA PRODUCTO</string>
     <string name="alta_pedido">ALTA PEDIDO</string>
+    <string name="codigo">Codigo:</string>
+    <string name="crear">CREAR</string>
+    <string name="nombreCamarero">Nombre Camarero</string>
 </resources>
