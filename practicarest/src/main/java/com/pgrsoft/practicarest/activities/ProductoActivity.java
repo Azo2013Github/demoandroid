@@ -37,8 +37,6 @@ public class ProductoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_producto);
 
 
-
-
         // Creates the json object which will manage the information received
         GsonBuilder builder = new GsonBuilder();
 
@@ -53,21 +51,10 @@ public class ProductoActivity extends AppCompatActivity {
             }
         });
 
-        // transformar la fecha java en Json. para poder actualizar un objeto json:
-        
-
-
-
-
-
-
-
-
 
         Gson gson = builder.create();
 
-
-        textViewResult = (TextView) findViewById(R.id.idResultadoProducto);
+        textViewResult = (TextView) findViewById(R.id.idProducto);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://pedi-gest.herokuapp.com/api/")
@@ -92,7 +79,6 @@ public class ProductoActivity extends AppCompatActivity {
                 List<Producto> productos = response.body();
 
                 /*Conversion date json to date java: */
-
                 GsonBuilder gsonBuilder = new GsonBuilder();
                 gsonBuilder.registerTypeAdapter(Date.class, new DateTypeDeserializer());
 

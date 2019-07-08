@@ -27,7 +27,7 @@ public class AltaCamareroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alta_camarero);
 
-        textViewResult = (TextView) findViewById(R.id.idResultado);
+        textViewResult = (TextView) findViewById(R.id.idAltaCamarero);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://pedi-gest.herokuapp.com/api/")
@@ -37,13 +37,12 @@ public class AltaCamareroActivity extends AppCompatActivity {
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
         createCamareros();
-
-
-
     }
 
+
     private void createCamareros(){
-        final Camarero camarero = new Camarero(189,"Raul Iniesta Garcia");
+
+        Camarero camarero = new Camarero(150,"Andres Iniesta Garcia");
         Call<Camarero> call = jsonPlaceHolderApi.createCamarero(camarero);
 
         call.enqueue(new Callback<Camarero>() {
@@ -60,8 +59,8 @@ public class AltaCamareroActivity extends AppCompatActivity {
 
                 String content = "";
                 content += "CODE: " + response.code() + "\n";
-                content += "ID: " + camarero.getCodigo() + "\n";
-                content += "NOMBRE: " + camarero.getNombre() + "\n";
+                content += "ID: " + camareroResponse.getCodigo() + "\n";
+                content += "NOMBRE: " + camareroResponse.getNombre() + "\n";
 
                 textViewResult.append(content);
             }

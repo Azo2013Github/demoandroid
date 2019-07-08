@@ -5,15 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.pgrsoft.practicarest.R;
-import com.pgrsoft.practicarest.activities.ProductoActivity;
-import com.pgrsoft.practicarest.model.Camarero;
-import com.pgrsoft.practicarest.model.Pedido;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -32,9 +27,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botonProducto = (Button) findViewById(R.id.idButtonProducto);
         botonCamarero = (Button) findViewById(R.id.idButtonCamarero);
         buttonPedido = (Button) findViewById(R.id.idButtonPedido);
-        botonActualizarCamarero = (Button) findViewById(R.id.idActualozarCamarero);
-        botonActualizarProducto = (Button) findViewById(R.id.idActulizarProducto);
-        botonActualizarPedido = (Button) findViewById(R.id.idActualizarPedido);
+        botonActualizarCamarero = (Button) findViewById(R.id.idAltaCamarero);
+        botonActualizarProducto = (Button) findViewById(R.id.idAltaProducto);
+        botonActualizarPedido = (Button) findViewById(R.id.idAltaPedido);
 
         buttonPedido.setOnClickListener(this);
         botonCamarero.setOnClickListener(this);
@@ -50,8 +45,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
-        //Toast.makeText(this, "FUNCIONA", Toast.LENGTH_LONG).show();
-        int option = 0;
         Intent intent = null;
         switch (view.getId()){
             case R.id.idButtonProducto:
@@ -68,15 +61,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 intent = new Intent(this, CamareroActivity.class);
                 break;
-            case R.id.idActualozarCamarero:
+
+            case R.id.idAltaCamarero:
 
                 intent = new Intent(this, AltaCamareroActivity.class);
                 break;
-            case R.id.idActulizarProducto:
 
-                intent = new Intent(this, ProductoActivity.class);
+            case R.id.idAltaProducto:
+
+                intent = new Intent(this, AltaProductoActivity.class);
                 break;
-            case R.id.idActualizarPedido:
+
+            case R.id.idAltaPedido:
 
                 intent = new Intent(this, PedidoActivity.class);
                 break;

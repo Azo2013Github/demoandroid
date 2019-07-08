@@ -26,7 +26,7 @@ public class CamareroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camarero);
-        textViewResult = (TextView) findViewById(R.id.idResultado);
+        textViewResult = (TextView) findViewById(R.id.idCamarero);
 
 
 
@@ -37,7 +37,7 @@ public class CamareroActivity extends AppCompatActivity {
 
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
-        createCamareros();
+
         getCamareros();
 
     }
@@ -60,8 +60,8 @@ public class CamareroActivity extends AppCompatActivity {
                 for (Camarero camarero: camareros) {
 
                     String content = "";
-                    content += "CODIGO: " + camarero.getCodigo()+ "\n\n ";
-                    content += "NOMBRE: " + camarero.getNombre() + "\n\n ";
+                    content += "CODIGO: " + camarero.getCodigo()+ "\n ";
+                    content += "NOMBRE: " + camarero.getNombre() + "\n ";
 
                     textViewResult.append(content);
                 }
@@ -75,38 +75,6 @@ public class CamareroActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    private void createCamareros(){
-        final Camarero camarero = new Camarero(189,"Raul Iniesta Garcia");
-        Call<Camarero> call = jsonPlaceHolderApi.createCamarero(camarero);
-
-        call.enqueue(new Callback<Camarero>() {
-
-            @Override
-            public void onResponse(Call<Camarero> call, Response<Camarero> response) {
-
-                if (!response.isSuccessful()){
-                    textViewResult.setText("Code: "+response.code());
-                    return;
-                }
-
-                Camarero camareroResponse = response.body();
-
-                String content = "";
-                content += "CODE: " + response.code() + "\n";
-                content += "ID: " + camarero.getCodigo() + "\n";
-                content += "NOMBRE: " + camarero.getNombre() + "\n";
-
-                textViewResult.setText(content);
-            }
-
-            @Override
-            public void onFailure(Call<Camarero> call, Throwable t) {
-                textViewResult.setText(t.getMessage());
-
-            }
-        });
     }
 
 }

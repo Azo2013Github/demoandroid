@@ -45,7 +45,7 @@ public class PedidoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedido);
 
-        textViewResult = (TextView) findViewById(R.id.idResultado);
+        textViewResult = (TextView) findViewById(R.id.idPedido);
         lineasPedidos = new ArrayList<>();
 
         producto = new Producto();

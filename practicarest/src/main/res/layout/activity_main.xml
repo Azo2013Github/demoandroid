@@ -17,6 +17,7 @@
         android:layout_marginRight="8dp"
         android:tag="1"
         android:text="@string/producto"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,6 +34,7 @@
         android:layout_marginRight="8dp"
         android:tag="2"
         android:text="@string/pedido"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,13 +51,14 @@
         android:layout_marginRight="8dp"
         android:tag="3"
         android:text="@string/camarero"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idButtonPedido" />
 
     <Button
-        android:id="@+id/idActualozarCamarero"
+        android:id="@+id/idAltaCamarero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -63,14 +66,16 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/actualizar_camarero"
+        android:tag="4"
+        android:text="@string/alta_camarero"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idButtonCamarero" />
 
     <Button
-        android:id="@+id/idActulizarProducto"
+        android:id="@+id/idAltaProducto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -78,14 +83,16 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/update_producto"
+        android:tag="5"
+        android:text="@string/alta_producto"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idActualozarCamarero" />
+        app:layout_constraintTop_toBottomOf="@+id/idAltaCamarero" />
 
     <Button
-        android:id="@+id/idActualizarPedido"
+        android:id="@+id/idAltaPedido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -93,9 +100,11 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/update_pedido"
+        android:tag="6"
+        android:text="@string/alta_pedido"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idActulizarProducto" />
+        app:layout_constraintTop_toBottomOf="@+id/idAltaProducto" />
 </androidx.constraintlayout.widget.ConstraintLayout>
