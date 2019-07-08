@@ -4,17 +4,31 @@ import java.util.Date;
 
 public class Producto {
 
+    private String categoria;
     private long codigo;
-
-
-    private String nombre;
-    private double precio;
+    private boolean descatalogado;
     private String descripcion;
     private Date fechaAlta;
-    private boolean descatalogado;
-    private String categoria;
+    private String nombre;
+    private double precio;
 
     public Producto() {
+    }
+
+    public Producto(String nombre, double precio, String descripcion, Date fechaAlta, boolean descatalogado,String categoria) {
+        this.categoria = categoria;
+        this.descatalogado = descatalogado;
+        this.descripcion = descripcion;
+        this.fechaAlta = fechaAlta;
+        this.nombre = nombre;
+        this.precio = precio;
+
+        /*"nombre": "café con leche",
+    "precio": 1.4,
+    "descripcion": "Descripción Producto B",
+    "fechaAlta": 1445299200000,
+    "descatalogado": false,
+    "categoria": "CAFE"*/
     }
 
     public long getCodigo() {

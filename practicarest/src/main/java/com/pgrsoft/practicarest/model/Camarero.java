@@ -6,9 +6,15 @@ public class Camarero {
 
     private long codigo;
 
+    //@SerializedName("body")
     private String nombre;
 
     public Camarero() {
+    }
+
+    public Camarero(long codigo, String nombre) {
+        this.codigo = codigo;
+        this.nombre = nombre;
     }
 
     public long getCodigo() {

@@ -3,4 +3,7 @@
     <string name="producto">PRODUCTO</string>
     <string name="pedido">PEDIDO</string>
     <string name="camarero">CAMARERO</string>
+    <string name="actualizar_camarero">UPDATE CAMARERO</string>
+    <string name="update_producto">UPDATE PRODUCTO</string>
+    <string name="update_pedido">UPDATE PEDIDO</string>
 </resources>

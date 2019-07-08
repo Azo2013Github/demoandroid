@@ -1,6 +1,7 @@
 package com.pgrsoft.practicarest.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Pedido {
 
@@ -8,8 +9,17 @@ public class Pedido {
     private Date date;
     private int mesa;
     private Camarero camarero;
+    private List<LineaPedido> lineasPedido;
 
     public Pedido() {
+    }
+
+    public List<LineaPedido> getLineasPedido() {
+        return lineasPedido;
+    }
+
+    public void setLineasPedido(List<LineaPedido> lineasPedido) {
+        this.lineasPedido = lineasPedido;
     }
 
     public long getId() {

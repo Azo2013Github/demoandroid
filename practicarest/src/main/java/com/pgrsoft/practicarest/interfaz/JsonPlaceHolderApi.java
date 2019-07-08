@@ -8,7 +8,9 @@ import com.pgrsoft.practicarest.model.Producto;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 public interface JsonPlaceHolderApi {
 
@@ -20,6 +22,13 @@ public interface JsonPlaceHolderApi {
 
     @GET("pedidos")
     Call<List<Pedido>> getPedidos();
+
+    @POST("camareros")
+    Call<Camarero> createCamarero(@Body Camarero camarero);
+
+    @POST("productos")
+    Call<Producto> createProducto(@Body Producto producto);
+
 
 
 

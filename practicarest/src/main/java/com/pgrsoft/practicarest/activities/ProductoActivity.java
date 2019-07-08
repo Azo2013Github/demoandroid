@@ -15,7 +15,6 @@ import com.google.gson.JsonParseException;
 import com.pgrsoft.practicarest.R;
 import com.pgrsoft.practicarest.dateimpl.DateTypeDeserializer;
 import com.pgrsoft.practicarest.interfaz.JsonPlaceHolderApi;
-import com.pgrsoft.practicarest.model.Pedido;
 import com.pgrsoft.practicarest.model.Producto;
 
 import java.lang.reflect.Type;
@@ -54,6 +53,17 @@ public class ProductoActivity extends AppCompatActivity {
             }
         });
 
+        // transformar la fecha java en Json. para poder actualizar un objeto json:
+        
+
+
+
+
+
+
+
+
+
         Gson gson = builder.create();
 
 
@@ -66,6 +76,8 @@ public class ProductoActivity extends AppCompatActivity {
 
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
+
+        //createProducto();
         getProductos();
     }
 
@@ -93,6 +105,7 @@ public class ProductoActivity extends AppCompatActivity {
 
                     String content = "";
                     content += "ID: " + producto.getCodigo() + "\n";
+                    content += "NOMBRE: " +producto.getNombre() + "\n";
                     content += "PRECIO: " + producto.getPrecio() + "\n";
                     content += "DESCRIPCION: " + producto.getDescripcion() + "\n";
                     content += "FECHA_ALTA: " + producto.getFechaAlta() + "\n";
@@ -101,9 +114,7 @@ public class ProductoActivity extends AppCompatActivity {
                     textViewResult.append(content);
                  }
 
-
             }
-
 
             @Override
             public void onFailure(Call<List<Producto>> call, Throwable t) {
@@ -112,15 +123,43 @@ public class ProductoActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    private void createProducto() {
+
+        Producto producto = new Producto("Yassa", 50, "Arroz", new Date(), true, "Comida segunda plato");
+        Call<Producto> call = jsonPlaceHolderApi.createProducto(producto);
+
+        call.enqueue(new Callback<Producto>() {
+
+            @Override
+            public void onResponse(Call<Producto> call, Response<Producto> response) {
+                if (!response.isSuccessful()){
+                    textViewResult.setText("Code: "+response.code());
+                    return;
+                }
+
+                Producto responProducto = response.body();
+
+                String content = "";
+                content += "Nombre: " + responProducto.getNombre() + "\n";
+                content += "Precio: " + responProducto.getPrecio() + "\n";
+                content += "Descripcion: " +responProducto.getDescripcion() + "\n";
+                content += "Fecha: " + responProducto.getFechaAlta() + "\n";
+                content += "Descatalogado: " +responProducto.isDescatalogado() + "\n";
+                content += "Categoria: " + responProducto.getCategoria() + "\n";
+
+                textViewResult.setText(content);
+            }
+
+            @Override
+            public void onFailure(Call<Producto> call, Throwable t) {
+                textViewResult.setText(t.getMessage());
+            }
+        });
 
 
     }
-
-
-
-
-
 
 
 

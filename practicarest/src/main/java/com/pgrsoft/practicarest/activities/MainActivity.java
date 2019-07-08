@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button botonProducto;
     private Button botonCamarero;
     private Button buttonPedido;
+    private Button botonActualizarCamarero;
+    private Button botonActualizarProducto;
+    private Button botonActualizarPedido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +32,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botonProducto = (Button) findViewById(R.id.idButtonProducto);
         botonCamarero = (Button) findViewById(R.id.idButtonCamarero);
         buttonPedido = (Button) findViewById(R.id.idButtonPedido);
+        botonActualizarCamarero = (Button) findViewById(R.id.idActualozarCamarero);
+        botonActualizarProducto = (Button) findViewById(R.id.idActulizarProducto);
+        botonActualizarPedido = (Button) findViewById(R.id.idActualizarPedido);
 
         buttonPedido.setOnClickListener(this);
         botonCamarero.setOnClickListener(this);
         botonProducto.setOnClickListener(this);
+        botonActualizarCamarero.setOnClickListener(this);
+        botonActualizarProducto.setOnClickListener(this);
+        botonActualizarPedido.setOnClickListener(this);
+
 
     }
 
@@ -58,6 +68,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 intent = new Intent(this, CamareroActivity.class);
                 break;
+            case R.id.idActualozarCamarero:
+
+                intent = new Intent(this, AltaCamareroActivity.class);
+                break;
+            case R.id.idActulizarProducto:
+
+                intent = new Intent(this, ProductoActivity.class);
+                break;
+            case R.id.idActualizarPedido:
+
+                intent = new Intent(this, PedidoActivity.class);
+                break;
+
 
         }
         startActivity(intent);
